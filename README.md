@@ -8,7 +8,9 @@ View my deployed app at :- https://e-commerce-auth0-stripe-2021.netlify.app/
 
 In the project directory, you can run:
 
-### `npm start`
+### Make sure you have netlify cli installed and then you can run.
+
+### `netlify dev`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
