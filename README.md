@@ -5,7 +5,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-View my deployed app at :- https://e-commerce-auth0-stripe-2021.netlify.app/
+Site live at :- https://e-commerce-auth0-stripe-2021.netlify.app/
 
 
 #### Older React Version
