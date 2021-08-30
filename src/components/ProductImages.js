@@ -28,12 +28,12 @@ const ProductImages = ({ images = [{ url: '' }] }) => {
 
 const Wrapper = styled.section`
   .skeleton {
-    animation: loading 0.5s linear infinite alternate;
+    animation: css-loading 0.5s linear infinite alternate;
   }
   #skeleton {
-    animation: loading 0.5s linear infinite alternate;
+    animation: css-loading 0.5s linear infinite alternate;
   }
-  @keyframes loading {
+  @keyframes css-loading {
     0% {
       background-color: hsl(200, 20%, 70%);
     }
