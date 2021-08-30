@@ -22,14 +22,30 @@ const Hero = () => {
         </Link>
       </article>
       <article className='img-container'>
-        <img src={heroBcg} alt='nice table' className='main-img ' />
-        <img src={heroBcg2} alt='person working' className='accent-img' />
+        <img src={heroBcg} alt='nice table' className='main-img skeleton ' />
+        <img
+          src={heroBcg2}
+          alt='person working'
+          className='accent-img skeleton'
+        />
       </article>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.section`
+  .skeleton {
+    animation: loading 0.5s linear infinite alternate;
+  }
+
+  @keyframes loading {
+    0% {
+      background-color: hsl(200, 20%, 70%);
+    }
+    100% {
+      background-color: hsl(200, 20%, 95%);
+    }
+  }
   min-height: 60vh;
   display: grid;
   place-items: center;

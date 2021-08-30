@@ -8,7 +8,7 @@ const Product = ({ image, name, price, id }) => {
   return (
     <Wrapper>
       <div className='container'>
-        <img src={image} alt={name} />
+        <img src={image} alt={name} className='skeleton' />
         {/* SINGLE ITEM */}
         <Link to={`/products/${id}`} className='link'>
           <FaSearch />
@@ -24,6 +24,18 @@ const Product = ({ image, name, price, id }) => {
 }
 
 const Wrapper = styled.article`
+  .skeleton {
+    animation: loading 0.5s linear infinite alternate;
+  }
+
+  @keyframes loading {
+    0% {
+      background-color: hsl(200, 20%, 70%);
+    }
+    100% {
+      background-color: hsl(200, 20%, 95%);
+    }
+  }
   .container {
     position: relative;
     background: var(--clr-black);

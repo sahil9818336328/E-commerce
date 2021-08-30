@@ -1,5 +1,7 @@
 import React, { useEffect, useContext, useReducer } from 'react'
 import reducer from '../reducers/cart_reducer'
+import { useUserContext } from './user_context'
+import Swal from 'sweetalert2'
 import {
   ADD_TO_CART,
   REMOVE_CART_ITEM,
@@ -26,6 +28,7 @@ const initialState = {
 const CartContext = React.createContext()
 
 export const CartProvider = ({ children }) => {
+  const { myUser } = useUserContext
   const [state, dispatch] = useReducer(reducer, initialState)
 
   // add to cart
@@ -46,6 +49,26 @@ export const CartProvider = ({ children }) => {
   // clear cart
   const clearCart = () => {
     dispatch({ type: CLEAR_CART })
+    if (!myUser) {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        confirmButtonColor: '#828DDB',
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        },
+      })
+
+      Toast.fire({
+        icon: 'success',
+        title: 'Logged out successfully',
+        iconColor: '#828DDB',
+      })
+    }
   }
 
   useEffect(() => {

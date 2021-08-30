@@ -3,10 +3,10 @@ import styled from 'styled-components'
 
 const ProductImages = ({ images = [{ url: '' }] }) => {
   const [main, setMain] = useState(images[0])
-  console.log(images)
+
   return (
     <Wrapper>
-      <img src={main.url} alt={main.filename} className='main' />
+      <img src={main.url} alt={main.filename} className='main skeleton' />
       <div className='gallery'>
         {images.map((img, index) => {
           const { url, filename } = img
@@ -17,6 +17,7 @@ const ProductImages = ({ images = [{ url: '' }] }) => {
               key={index}
               onClick={() => setMain(images[index])}
               className={`${img.url === main.url ? 'active' : null}`}
+              id='skeleton'
             />
           )
         })}
@@ -26,6 +27,20 @@ const ProductImages = ({ images = [{ url: '' }] }) => {
 }
 
 const Wrapper = styled.section`
+  .skeleton {
+    animation: loading 0.5s linear infinite alternate;
+  }
+  #skeleton {
+    animation: loading 0.5s linear infinite alternate;
+  }
+  @keyframes loading {
+    0% {
+      background-color: hsl(200, 20%, 70%);
+    }
+    100% {
+      background-color: hsl(200, 20%, 95%);
+    }
+  }
   .main {
     height: 600px;
   }

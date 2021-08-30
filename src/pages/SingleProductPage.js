@@ -27,6 +27,7 @@ const SingleProductPage = () => {
   // FETCH SINGLE PRODUCT DETAILS
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`)
+    // eslint-disable-next-line
   }, [id])
 
   // IF ERROR RE-DIRECT USER TO HOME PAGE.
@@ -36,6 +37,7 @@ const SingleProductPage = () => {
         history.push('/')
       }, 3000)
     }
+    // eslint-disable-next-line
   }, [error])
 
   if (loading) {

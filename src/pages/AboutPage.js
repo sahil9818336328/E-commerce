@@ -8,7 +8,7 @@ const AboutPage = () => {
     <main>
       <PageHero title='about' />
       <Wrapper className=' section section-center'>
-        <img src={aboutImg} alt='nice desk' />
+        <img src={aboutImg} alt='nice desk' className='skeleton' />
         <article>
           <div className='title'>
             <h2>our story</h2>
@@ -31,6 +31,18 @@ const AboutPage = () => {
 }
 
 const Wrapper = styled.section`
+  .skeleton {
+    animation: loading 0.5s linear infinite alternate;
+  }
+
+  @keyframes loading {
+    0% {
+      background-color: hsl(200, 20%, 70%);
+    }
+    100% {
+      background-color: hsl(200, 20%, 95%);
+    }
+  }
   display: grid;
   gap: 4rem;
   img {

@@ -9,7 +9,7 @@ const ListView = ({ products }) => {
         const { id, image, name, price, description } = product
         return (
           <article key={id}>
-            <img src={image} alt={name} />
+            <img src={image} alt={name} className='skeleton' />
             <div>
               <h4>{name}</h4>
               <h5 className='price'>{formatPrice(price)}</h5>
@@ -26,6 +26,18 @@ const ListView = ({ products }) => {
 }
 
 const Wrapper = styled.section`
+  .skeleton {
+    animation: loading 0.5s linear infinite alternate;
+  }
+
+  @keyframes loading {
+    0% {
+      background-color: hsl(200, 20%, 70%);
+    }
+    100% {
+      background-color: hsl(200, 20%, 95%);
+    }
+  }
   display: grid;
   row-gap: 3rem;
 
